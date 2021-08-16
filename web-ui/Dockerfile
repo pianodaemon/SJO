@@ -1,5 +1,5 @@
 FROM ubuntu:bionic
-MAINTAINER miriam.physics@gmail.com
+LABEL MAINTAINER omontes.dev@gmail.com
 
 # getting last software catalog
 RUN apt-get update --fix-missing

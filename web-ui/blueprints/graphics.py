@@ -8,6 +8,7 @@ bp = Blueprint('graphics', __name__,
                         template_folder='templates')
 
 
+@bp.route('/', methods=['GET', 'POST'])
 @bp.route('/graphics', methods=['GET', 'POST'])
 def graphicsList():
 

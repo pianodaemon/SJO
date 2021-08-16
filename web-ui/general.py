@@ -1,4 +1,4 @@
-URLFrp = 'http://15.164.48.84/api/v1/' 
+URLFrp = 'http://obras/api/v1/' 
 
 menuContract = [
     {'name':'Contratos',  'url':'/contracts ', 'nameSingular': 'Contrato'  },
