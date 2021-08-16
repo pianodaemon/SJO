@@ -1,5 +1,5 @@
 FROM ubuntu:bionic
-LABEL MAINTAINER omontes.dev@gmail.com
+MAINTAINER miriam.physics@gmail.com
 
 # getting last software catalog
 RUN apt-get update --fix-missing
@@ -13,7 +13,7 @@ RUN apt-get install -y --no-install-recommends  \
 RUN apt-get clean
 
 WORKDIR /app
-COPY . /app
+COPY ./service /app
 
 RUN pip3 install -r requirements.txt
 

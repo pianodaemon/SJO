@@ -1,0 +1,49 @@
+version: "3.5"
+
+x-shared-environment: &commonEnv
+    POSTGRES_HOST: "pg"
+    POSTGRES_DB: "obras"
+    POSTGRES_USER: "postgres"
+    POSTGRES_PASSWORD: "postgres"
+    POSTGRES_PORT: 5432
+    FLASK_ENV: "production"
+
+services:
+    obras:
+        build: ./obras
+        environment: *commonEnv
+        depends_on:
+            - pg
+        ports:
+            - "80:80"
+        networks:
+            - obras_network
+    web-ui:
+        build: ./web-ui
+        ports:
+            - "8080:80"
+        networks:
+            - obras_network
+    www:
+        image: rdleon/obras_www
+        ports:
+            - "443:80"
+        networks:
+            - obras_network
+    pg:
+        image: postgres
+        # ports:
+        #     - "5432:5432"
+        environment: *commonEnv
+        volumes:
+            - pg_data:/var/lib/postgresql/data
+        networks:
+            - obras_network
+
+networks:
+    obras_network:
+        name: obras_network
+        driver: bridge
+
+volumes:
+    pg_data:
