@@ -47,34 +47,34 @@ var setJsonsHC = {
         
             //[Estatus][Anio]  
             var countField = [
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
             ];
             
             var countFieldAmount = [
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
             ];
             
-            var countFieldAmountByCity = [0,0,0,0,0] ;  
+            var countFieldAmountByCity = [0,0,0,0,0,0,0] ;  
             
-            var categories        = ['2015', '2016', '2017', '2018', '2019'];
+            var categories        = ['2015', '2016', '2017', '2018', '2019', '2020', '2021'];
             
             //Por cada obra aumenta en 1 el elemento countField[estatus][ciudad]
             for(var i in jsonResponse){
                 var obra = jsonResponse[i];
                 var year = parseInt( obra.contract_kickoff );
-                if( year >= 2015 && year <= 2019 ){
+                if( year >= 2015 && year <= 2021 ){
                     var yearArray = year - 2015;
                     countField[obra.check_stage - 1][ yearArray ]++;
                     countFieldAmount[obra.check_stage - 1][ yearArray ] += obra.final_contracted_amount;
