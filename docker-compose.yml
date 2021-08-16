@@ -31,9 +31,7 @@ services:
         networks:
             - obras_network
     pg:
-        image: postgres
-        # ports:
-        #     - "5432:5432"
+        image: postgres:11.7
         environment: *commonEnv
         volumes:
             - pg_data:/var/lib/postgresql/data
