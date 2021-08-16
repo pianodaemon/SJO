@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <link rel="icon" href="/static/images/favi.png" type="image/gif" sizes="16x9">
+        
+        <!--Loading JQuery UI css-->
+        <link href="/static/css/jquery-ui.css" rel="stylesheet" type="text/css">
+        
+        <!--  -->
+        <link href="/static/css/main.css" rel="stylesheet" type="text/css">
+        <!-- Bootstrap CSS CDN -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        
+        <!-- Our Custom CSS -->
+        <link href="/static/css/style4.css" rel="stylesheet" type="text/css">
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        
+        <!-- Fonts Google -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        
+        <!-- Select2 -->
+        <link href="/static/css/select2.min.css" rel="stylesheet" />
+ 
+        <!-- CSS for Lato family font -->
+        <link href="/static/css/cssLaton.css" rel="stylesheet">
+        
+        
+        <link href="/static/css/obras.css" rel="stylesheet">
+        
+
+        <title> Contraloría y Transparencia Gubernamental Gobierno del Estado de Nuevo León </title>
+    </head>
+
+
+    <body class="  pace-done">
+        <div class="pace  pace-inactive">
+            <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">  
+                <div class="pace-progress-inner">
+                </div>
+            </div>
+            <div class="pace-activity">
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar" style="min-height: 100%;">
+                <div class="sidebar-header">
+                    <div class="sjo-logo-big">
+                        <img width="244" height="119" class="img-fluid" src="/static/images/logo.png">
+                    </div>
+                    <div class="sjo-logo-small">
+                        <img width="244" height="119" class="img-fluid" src="/static/images/escudo.png">
+                    </div>
+                </div>
+                <ul class="list-unstyled components">   
+                
+                
+                        
+                    <li class="menu-element"  id="{{ menu[1]['idHTML'] }}"  {{ menu[1]['isActive'] }}  >
+                        <a  href="{{ menu[1]['url'] }}" >
+                            <i class="{{ menu[1]['iconClass'] }}"></i>
+                            <span class="menu-title">  {{ menu[1]['name'] }} </span>
+                        </a>
+                    </li>
+                    <li class="menu-element"  id="{{ menu[2]['idHTML'] }}"  {{ menu[2]['isActive'] }} >
+                        <a  href="{{ menu[2]['url'] }}"  >
+                            <i class="{{ menu[2]['iconClass'] }}"></i>
+                            <span class="menu-title" > {{ menu[2]['name'] }} </span>
+                        </a>                       
+                    </li>
+                    <li class="menu-element"  id="{{ menu[3]['idHTML'] }}"   {{ menu[3]['isActive'] }} > 
+                        <a   href="{{ menu[3]['url'] }}" >
+                            <i class="{{ menu[3]['iconClass'] }}"> </i>
+                            <span class="menu-title"> {{ menu[3]['name'] }} </span>
+                        </a>
+                    </li>
+                    <li class="menu-element"  id="{{ menu[4]['idHTML'] }}"  {{ menu[4]['isActive'] }} >
+                        <a   href="{{ menu[4]['url'] }}" >
+                            <i class="{{ menu[4]['iconClass'] }}"> </i>
+                            <span class="menu-title"> {{ menu[4]['name'] }} </span>
+                        </a>
+                    </li>                      
+                    <li class="menu-element"  id="{{ menu[5]['idHTML'] }}"  {{ menu[5]['isActive'] }} >
+                        <a   href="{{ menu[5]['url'] }}" >
+                            <i class="{{ menu[5]['iconClass'] }}"> </i>
+                            <span class="menu-title"> {{ menu[5]['name'] }} </span>
+                        </a>
+                    </li>                   
+                    
+                    
+                            
+                    
+                </ul>
+            </nav>
+
+
+
+            <!-- Page Content Holder -->
+            <div id="content" class="container-fluid">
+
+            <!-- Nav Bar -->
+                <nav class="navbar navbar-default navbar-static-top" >
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button class="btn btn-info navbar-btn" id="sidebarCollapse" type="button">
+                                <i class="fa fa-bars"></i>
+                                <span class="sr-only">Toggle navigation</span>
+                            </button>
+                        </div>
+                        <!--
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle" style="font-size: 20px; vertical-align: -1px;"></i>
+                                Usuario
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-sw" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" ><i class="fa fa-user"></i>Mi Perfil</a>               
+                                
+                                <a class="dropdown-item" href="#"><i class="fa fa-calendar"></i>Calendario</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-envelope"></i>Buzón</a>     
+                                
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" ><i class="fas fa-sign-out-alt"></i></i>Salir</a>
+                            </div>
+                        </div>   
+                        -->                     
+                    </div>
+                </nav>
+
+
+                <!--BEGIN TITLE & BREADCRUMB PAGE-->
+                
+                <div class="page-title-breadcrumb" id="title-breadcrumb-option-demo">
+                    <ol class="breadcrumb page-breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            &nbsp;
+                            <a  id="titleFirstLink" href="{{ menu[0]['url'] }}">{{ menu[0]['name'] }}</a>
+                            &nbsp;&nbsp;
+                            <i class="fa fa-angle-right"></i>
+                            &nbsp;&nbsp;
+                            <a  id="titleDepartment" > Editar {{ menu[0]['nameSingular'] }}  </a>
+                        </li>                         
+                    </ol>
+                    <div class="clearfix">
+                    </div>
+                </div>
+                
+                <!--END TITLE & BREADCRUMB PAGE-->
+                
+
+                <!--BEGIN CONTENT-->
+                <div class="container-fluid">
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                             <div class="portlet box">
+                                
+
+                                <br>
+
+
+
+                                <div class="portlet-body">
+
+                                    <h4>{{ titleDontExist }}</h4>
+                                    <div id="addRegister" style="{{ displayExistRegister }}" >
+                                        <div class="form-group">
+                                            <div class="row rowAddRegister"  >
+                                                <div class="col-md-6">
+                                                    <label for="title" class="indicatorName">Nombre del Contrato</label> <br>
+                                                    <input type="text" name="title" class="form-control" id="title" value="{{ data.title }}" >
+                                                    <p id="for_title" class="msjNotValid" > </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="number" class="indicatorName">Número del Contrato </label> <br>
+                                                    <input type="text" name="number" class="form-control" id="number" value="{{ data.number }}" >
+                                                    <p id="for_number" class="msjNotValid" > </p>
+                                                </div>
+                                            </div>
+                                        
+                                             <div class="row rowAddRegister">
+                                                <div class="col-md-6">
+                                                    <label for="initial_contracted_amount" class="indicatorName"> Monto Contratado Inicial </label> <br>
+                                                    <input type="number" name="initial_contracted_amount" class="form-control" id="initial_contracted_amount" value="{{ data.initial_contracted_amount }}" >
+                                                    <p id="for_initial_contracted_amount" class="msjNotValid" > </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="provider" class="indicatorName"> Contratista </label> <br>
+                                                    <select name="provider" class="form-control" id="provider" >
+                                                        <option value="0" > Selecciona un Contratista </option>
+                                                        {% for provider in providers %}
+                                                        <option value="{{ provider.id }}"> {{ provider.title }} </option>
+                                                        {% endfor %}
+                                                    </select>
+                                                    <p id="for_provider" class="msjNotValid" > </p>
+                                                </div>
+                                            </div>                                       
+                                        
+                                             <div class="row rowAddRegister">
+                                                <div class="col-md-6">
+                                                    <label for="kickoff" class="indicatorName"> Inicio de Obras Según Contrato </label> <br>
+                                                    <input type="text" name="kickoff" class="form-control" id="kickoff" value="{{ data.kickoff }}" >
+                                                    <p id="for_kickoff" class="msjNotValid" > </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="ending" class="indicatorName"> Fin de Obras Según Contrato </label> <br>
+                                                    <input type="text" name="ending" class="form-control" id="ending" value="{{ data.ending }}" >
+                                                    <p id="for_ending" class="msjNotValid" > </p>
+                                                </div>
+                                            </div>                                       
+                                                
+                                             <div class="row rowAddRegister">
+                                                <div class="col-md-6">
+                                                    <label for="down_payment" class="indicatorName"> fecha de pago anticipo </label> <br>
+                                                    <input type="text" name="down_payment" class="form-control" id="down_payment" value="{{ data.down_payment }}" >
+                                                    <p id="for_down_payment" class="msjNotValid" > </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="down_payment_amount" class="indicatorName"> monto de pago anticipo </label> <br>
+                                                    <input type="number" name="down_payment_amount" class="form-control" id="down_payment_amount" value="{{ data.down_payment_amount }}" >
+                                                    <p id="for_down_payment_amount" class="msjNotValid" > </p>
+                                                </div>
+                                            </div> 
+
+                                             <div class="row rowAddRegister">
+                                                <div class="col-md-6">
+                                                    <label for="ext_agreement" class="indicatorName">  fecha de convenio ampliación de obra </label> <br>
+                                                    <input type="text" name="ext_agreement" class="form-control" id="ext_agreement" value="{{ data.ext_agreement }}" >
+                                                    <p id="for_ext_agreement" class="msjNotValid" > </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="ext_agreement_amount" class="indicatorName"> convenio de ampliación económico </label> <br>
+                                                    <input type="number" name="ext_agreement_amount" class="form-control" id="ext_agreement_amount" value="{{ data.ext_agreement_amount }}" >
+                                                    <p id="for_ext_agreement_amount" class="msjNotValid" > </p>
+                                                </div>
+                                            </div> 
+
+                                             <div class="row rowAddRegister">
+                                                <div class="col-md-6">
+                                                    <label for="final_contracted_amount" class="indicatorName"> monto contrato final </label> <br>
+                                                    <input type="number" name="final_contracted_amount" class="form-control" id="final_contracted_amount" value="{{ data.final_contracted_amount }}" >
+                                                    <p id="for_final_contracted_amount" class="msjNotValid" > </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="total_amount_paid" class="indicatorName"> total pagado </label> <br>
+                                                    <input type="number" name="total_amount_paid" class="form-control" id="total_amount_paid" value="{{ data.total_amount_paid }}" >
+                                                    <p id="for_total_amount_paid" class="msjNotValid" > </p>
+                                                </div>
+                                            </div> 
+
+                                             <div class="row rowAddRegister">
+                                                <div class="col-md-6">
+                                                    <label for="outstanding_down_payment" class="indicatorName"> anticipo pendiente de amotizar </label> <br>
+                                                    <input type="number" name="outstanding_down_payment" class="form-control" id="outstanding_down_payment" value="{{ data.outstanding_down_payment }}"  >
+                                                    <p id="for_outstanding_down_payment" class="msjNotValid" > </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="delivery_stage" class="indicatorName"> Estado de Entrega </label> <br>
+                                                    <select name="delivery_stage" class="form-control" id="delivery_stage" value="{{ data.delivery_stage }}"  >
+                                                        <option value="0">Selecciona el Estado de Entega</option>
+                                                        <option value="1">Verde</option>
+                                                        <option value="2">Amarillo</option>
+                                                        <option value="3">Naranja</option>
+                                                        <option value="4">Rojo</option>
+                                                        <option value="7">Azul</option>
+                                                    </select>
+                                                    <p id="for_delivery_stage" class="msjNotValid" > </p>
+                                                </div>
+                                                
+                                            </div> 
+
+
+
+                                            <div class="row rowAddRegister">
+                                                <div class="col-md-6">
+                                                    <label for="adjudication" class="indicatorName"> Proceso de Adjudicación </label> <br>
+                                                    <select name="adjudication" class="form-control" id="adjudication"  >
+                                                        <option value="0">--Selecciona el Proceso de Adjudicación--</option>
+                                                        <option value="1">Licitación Pública</option>
+                                                        <option value="2">Adjudicación Directa</option>
+                                                        <option value="3">Invitación Restringida</option>
+                                                    </select>
+                                                    <p id="for_adjudication" class="msjNotValid" > </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="funding" class="indicatorName"> Tipo de Fondo </label> <br>
+                                                    <select name="funding" class="form-control" id="funding"  >
+                                                        <option value="0">--Selecciona el Tipo de Fondo--</option>
+                                                        <option value="1">Federal</option>
+                                                        <option value="2">Estatal</option>
+                                                    </select>
+                                                    <p id="for_funding" class="msjNotValid" > </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row rowAddRegister">
+                                                <div class="col-md-6">
+                                                    <label for="program" class="indicatorName"> Programa </label> <br>
+                                                    <select name="program" class="form-control" id="program"  >
+                                                        <option value="0">--Selecciona el Programa--</option>
+                                                    </select>
+                                                    <p id="for_program" class="msjNotValid" > </p>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                             <div class="row rowAddRegister">
+                                                <div class="col-md-12">
+                                                    <label for="description" class="indicatorName"> Descripción </label> <br>
+                                                    <textarea name="description" class="form-control" id="description" >{{ data.description }}</textarea>
+                                                    <p id="for_description" class="msjNotValid" > </p>
+                                                </div>
+                                                
+                                            </div> 
+                                                
+                                            <div class="contentOfButtonsActions" >
+                                                <button onclick="saveRegister();" class="buttonsActions saveRegisterButton"> Guardar </button>
+                                                <button onclick="DELETERegisters.warning();" class="buttonsActions deleteRegisterButton"> Eliminar </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>                            
+                </div>
+
+                    <!-- BEGIN MODAL -->
+                <div id="modalconfirm" class="modal fade" data-backdrop-limit="1" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" id="dialogConfirmModal">
+                        <div class="modal-content">
+                            <div class="modal-body" >
+                                
+                                <div id="containerModalImageZoom" style="text-align: center;">
+                                    <p id="messageconfirm">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        Seguro que desea eliminar este elemento
+                                    </p>    
+                                    <button type="button" class="close confirmDeleteButton cancelButtonConfirm" data-dismiss="modal" aria-hidden="true"  >Cancelar</button>
+                                    <button type="button" class="close confirmDeleteButton deleteButtonConfirm" data-dismiss="modal" aria-hidden="true" onclick="DELETERegisters.send();">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                   
+                <!-- END MODAL -->
+        
+        
+        
+
+            </div>
+        </div>
+
+
+        <input id="kickoffValue" type="hidden" value="{{ data.kickoff }}" >
+        <input id="endingValue" type="hidden" value="{{ data.ending }}" >
+        <input id="down_paymentValue" type="hidden" value="{{ data.down_payment }}" >
+        <input id="ext_agreementValue" type="hidden" value="{{ data.ext_agreement }}" >
+        <input id="providerValue" type="hidden" value="{{ data.provider }}" >
+        <input id="delivery_stageValue" type="hidden" value="{{ data.delivery_stage }}" >
+        <input id="adjudicationValue" type="hidden" value="{{ data.adjudication if data.adjudication != None else 0 }}" >
+        <input id="fundingValue" type="hidden" value="{{ data.funding if data.funding != None else 0 }}" >
+        <input id="programValue" type="hidden" value="{{ data.program if data.program != None else 0 }}" >
+
+
+        
+        <input id="registerid" type="hidden" value="{{ data.id }}" >
+        <input id="catalogName" type="hidden" value="{{ catalog }}" >
+ 
+
+        
+    
+        <!-- Jquery -->
+        <script src="/static/js/jquery-3.3.1.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="/static/js/bootstrap.min.js"></script>
+        <!-- Jquery UI -->
+        <script src="/static/js/jquery-ui.js"></script>
+        <!--  -->
+        <script src="/static/js/jsonpath-0.8.0.js"></script>
+        <!-- Highcharts -->
+        <script src="/static/js/highcharts.js"></script>
+        <!-- Highcharts 3D charts -->
+        <script src="/static/js/highcharts-3d.js"></script>
+        <!-- Module of Highcharts -->
+        <script src="/static/js/exporting.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        
+        <!-- Select2 -->
+        <script src="/static/js/select2.min.js"></script>
+        
+        <!-- Notify -->
+        <script src="/static/js/notify.min.js"></script>
+
+        <!-- Js for crate list -->
+        <script src="/static/js/listRegisters.js"></script>
+
+
+        <script>
+            
+            $(document).ready(function () {
+
+                //Button toggle for sidebar
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
+                
+
+                //Se aplican los iniciadores de datepicker a los inputs tipo fecha
+                $( "#kickoff" ).datepicker( datesGENL.formatPicker );
+                $( "#ending" ).datepicker( datesGENL.formatPicker );
+                $( "#down_payment" ).datepicker( datesGENL.formatPicker );
+                $( "#ext_agreement" ).datepicker( datesGENL.formatPicker );
+
+
+                //Muestran los valores que se deben de ver
+                //Se cambia a d-m-a
+                document.getElementById('kickoff').value       = datesGENL.formatOrder($('#kickoffValue').val() );
+                document.getElementById('ending').value        = datesGENL.formatOrder($('#endingValue').val() );
+                document.getElementById('ext_agreement').value = datesGENL.formatOrder($('#ext_agreementValue').val() );
+                document.getElementById('down_payment').value  = datesGENL.formatOrderTime($('#down_paymentValue').val() );
+
+                //Preselecciones, por que no agarra value el select
+                document.getElementById('delivery_stage').value = document.getElementById('delivery_stageValue').value;
+                document.getElementById('provider').value       = document.getElementById('providerValue').value;
+                document.getElementById('adjudication').value   = document.getElementById('adjudicationValue').value;
+                document.getElementById('funding').value        = document.getElementById('fundingValue').value;
+                document.getElementById('program').value        = document.getElementById('programValue').value;
+
+                $('#provider').select2();
+
+
+            });
+
+
+
+            function saveRegister(){
+                                
+                var idRegister  = $('#registerid').val();
+                var catalog = document.getElementById('catalogName').value;
+                var url = '/'+ catalog +'/edit/' + idRegister;
+
+                //Fields for validate
+                var fieldsJson = [
+                    {'id' : 'number',                   'type' : 'text'},
+                    {'id' : 'title',                    'type' : 'text'},
+                    {'id' : 'provider',                 'type' : 'selectNumber'},
+                    {'id' : 'delivery_stage',           'type' : 'selectNumber'},
+                    {'id' : 'initial_contracted_amount','type' : 'float'},
+                    {'id' : 'kickoff',                  'type' : 'date'},
+                    {'id' : 'ending',                   'type' : 'date'},
+                    {'id' : 'description',              'type' : 'text'},
+                    {'id' : 'down_payment',             'type' : 'date'},
+                    {'id' : 'down_payment_amount',      'type' : 'float'},
+                    {'id' : 'ext_agreement',            'type' : 'date'},
+                    {'id' : 'ext_agreement_amount',     'type' : 'float'},
+                    {'id' : 'final_contracted_amount',  'type' : 'float'},
+                    {'id' : 'total_amount_paid',        'type' : 'float'},
+                    {'id' : 'outstanding_down_payment', 'type' : 'float'},
+                ];
+
+                var send = validate.fields( fieldsJson );
+                
+                if (send){
+                    //Create json send
+                    //////Aqui si se envia el id
+                    var dataJson = JSON.stringify({
+                        'id'                        : idRegister,
+                        'number'                    : $('#number').val(),                             
+                        'title'                     : $('#title').val(),                              
+                        'description'               : $('#description').val(),                        
+                        'provider'                  : $('#provider').val(),                           
+                        'delivery_stage'            : $('#delivery_stage').val(),                     
+                        'initial_contracted_amount' : $('#initial_contracted_amount').val(),          
+                        'kickoff'                   : datesGENL.formatDateSend( $('#kickoff').val() ),        
+                        'ending'                    : datesGENL.formatDateSend( $('#ending').val() ),         
+                        'down_payment'              : datesGENL.formatDateSend( $('#down_payment').val() ),
+                        'down_payment_amount'       : $('#down_payment_amount').val(),
+                        'ext_agreement'             : datesGENL.formatDateSend( $('#ext_agreement').val() ),
+                        'ext_agreement_amount'      : $('#ext_agreement_amount').val(),               
+                        'final_contracted_amount'   : $('#final_contracted_amount').val(),            
+                        'total_amount_paid'         : $('#total_amount_paid').val(),                  
+                        'adjudication'              : $('#adjudication').val(),                  
+                        'funding'                   : $('#funding').val(),                  
+                        'program'                   : $('#program').val(),                  
+                        'outstanding_down_payment'  : $('#outstanding_down_payment').val(),
+                    });
+                    POSTRegister.send( url, dataJson, 'update' );
+                }
+
+
+            }
+
+        </script>
+
+    </body>
+</html>
