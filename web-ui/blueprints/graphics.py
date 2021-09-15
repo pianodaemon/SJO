@@ -152,7 +152,7 @@ def calcular_periodos_admon():
 
     ini, fin = get_periodo_admon(now)
     l.append((get_periodo_admon_str(ini, fin, ini.year, fin.year), 'Administración actual'))
-    fin_backup = fin
+    fin_admon_act = fin
 
     ini_year = ini.year
     while ini_year > ANIO_MIN:
@@ -169,7 +169,7 @@ def calcular_periodos_admon():
     anio = ANIO_MIN
     ini = anio
     fin = anio + ANIOS_ADMON
-    while anio <= fin_backup.year:
+    while anio <= fin_admon_act.year:
         l.append(('{}-01-01/{}-12-31/{}/{}'.format(anio, anio, ini, fin), str(anio)))
         anio += 1
         if anio > fin:
