@@ -5,3 +5,5 @@ web-ui/.vscode/
 web-ui/__pycache__/
 web-ui/blueprints/__pycache__/
 web-ui/venv/
+obras/service/.vscode/
+obras/service/venv/

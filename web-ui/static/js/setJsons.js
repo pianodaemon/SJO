@@ -1,5 +1,5 @@
 var setJsonsHC = {
-    Chart : function( resp ){
+    Chart : function(resp) {
         var countStages = ['',0,0,0,0,0,0,0];
         var countStagesAmount = [0,0,0,0,0,0,0,0];  
         var values = [];
@@ -43,7 +43,7 @@ var setJsonsHC = {
         return values;
     },
     dates: {
-        byAmount: function( jsonResponse ){
+        byAmount: function(jsonResponse, yearRange) {
         
             //[Estatus][Anio]  
             var countField = [
@@ -68,21 +68,24 @@ var setJsonsHC = {
             
             var countFieldAmountByCity = [0,0,0,0,0,0,0] ;  
             
-            var categories        = ['2015', '2016', '2017', '2018', '2019', '2020', '2021'];
+            let categories = [];
+            for (let y = yearRange.min; y <= yearRange.max; y++) {
+                categories.push('' + y);
+            }
             
             //Por cada obra aumenta en 1 el elemento countField[estatus][ciudad]
-            for(var i in jsonResponse){
-                var obra = jsonResponse[i];
-                var year = parseInt( obra.contract_kickoff );
-                if( year >= 2015 && year <= 2021 ){
-                    var yearArray = year - 2015;
+            for (let obra of jsonResponse) {
+                let year = parseInt(obra.contract_kickoff);
+
+                if (year >= yearRange.min && year <= yearRange.max){
+                    let yearArray = year - yearRange.min;
                     countField[obra.check_stage - 1][ yearArray ]++;
                     countFieldAmount[obra.check_stage - 1][ yearArray ] += obra.final_contracted_amount;
                     countFieldAmountByCity[ yearArray ] += obra.final_contracted_amount;
                 }
             }
 
-            var finalContractedAmountTotal =  countFieldAmountByCity.reduce(function(total, sum){return total + sum;}) ;
+            var finalContractedAmountTotal = countFieldAmountByCity.reduce(function(total, sum) { return total + sum; });
             
             var dataForStatus = [[],[],[],[],[],[],[]];
             for( var field in countField[0] ){

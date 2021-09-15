@@ -42,16 +42,20 @@ var plotsChart = {
         
         //$('.linkPlots').removeAttr("active"); $( '#plotTotal2' ).attr('active','');
     },
-    initDates : function(){
+    initDates: function() {
         if( !plotsChart.allowGetData ){ return; }
         plotsChart.allowGetData = false; $('.linkPlots').css('cursor','wait');
 
-        plotsChart.chartType = 'barDates';
+        plotsChart.chartType     = 'barDates';
         plotsChart.typeHighChart = 'column';
-        plotsChart.groupChartBy = 'byAmount';
-        plotsChart.domainChart  = 'dates';
-        plotsChart.functionAfterClickChart   = '';
-        plotsChart.functionClick = function(s){ plotsChart.startDate = s+'-01-01'; plotsChart.endDate = s+'-12-31'; plotsChart.openUrl(); };
+        plotsChart.groupChartBy  = 'byAmount';
+        plotsChart.domainChart   = 'dates';
+        plotsChart.functionAfterClickChart = '';
+        plotsChart.functionClick = function(s) {
+            plotsChart.startDate = plotsChart.startDateChart.substring(0, 4) == s ? plotsChart.startDateChart : s + '-01-01';
+            plotsChart.endDate   = plotsChart.endDateChart.substring(0, 4)   == s ? plotsChart.endDateChart   : s + '-12-31';
+            plotsChart.openUrl();
+        };
         plotsChart.getData();
         
         $('#buttonShowProviderTable').css('display','block');
@@ -384,7 +388,7 @@ var plotsChart = {
     },
     chart : '',
     data  : undefined,
-    getData : function ( ){
+    getData: function() {
         
         document.getElementById('waintingAnimation').style.display = "block";
         
@@ -436,7 +440,7 @@ var plotsChart = {
                     return '';
 
                 }else {
-                    var values = setJsonsHC[plotsChart.domainChart][plotsChart.groupChartBy](res.data);
+                    var values = setJsonsHC[plotsChart.domainChart][plotsChart.groupChartBy](res.data, plotsChart.yearRange);
                 }
                 
                 var optionsHighChart = plotsChart.optionsStackedBar(values[0], values[1], values[2]);
@@ -1014,8 +1018,8 @@ var plotsChart = {
                 color: '#009',
             }]
         });
-    }
-    ,anios: function(){
+    },
+    anios: function(){
         
         $('#sidebar').remove()
         $('#title-breadcrumb-option-demo').remove()
@@ -1221,8 +1225,10 @@ var plotsChart = {
         });
         
         plotsChart.chart.render();
-    }
-
+    },
+    yearRange: {min: 0, max: 0},
+    startDateChart: '',
+    endDateChart: ''
 }
 
 

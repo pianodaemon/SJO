@@ -178,14 +178,9 @@
 
                                 <div class="portlet-header">
                                     <select id="periodDateChart" >
-                                        <option value="/"  >Administración Actual</option>
-                                        <option value="/2015-10-4">Administración Anterior (Hasta 4/Oct/2015)</option>
-                                        <option value="2016-01-01/2016-12-31">2016</option>
-                                        <option value="2017-01-01/2017-12-31">2017</option>
-                                        <option value="2018-01-01/2018-12-31">2018</option>
-                                        <option value="2019-01-01/2019-12-31">2019</option>
-                                        <option value="2020-01-01/2020-12-31">2020</option>
-                                        <option value="2021-01-01/2021-12-31">2021</option>
+                                        {% for value, caption in periodos %}
+                                        <option value="{{ value }}">{{ caption }}</option>
+                                        {% endfor %}
                                     </select>
                                     <div class="tools">
                                         <!--
@@ -523,9 +518,17 @@
         
         <script> 
         
-            $(document).ready(function () {
+            $(document).ready(function() {
             
-                document.getElementById('periodDateChart').options[0].selected = true
+                let pdChart = document.getElementById('periodDateChart');
+                pdChart.options[0].selected = true;
+                let startEnd = pdChart.value.split('/');
+                plotsChart.startDate      = startEnd[0];
+                plotsChart.endDate        = startEnd[1];
+                plotsChart.yearRange.min  = startEnd[2];
+                plotsChart.yearRange.max  = startEnd[3];
+                plotsChart.startDateChart = startEnd[0];
+                plotsChart.endDateChart   = startEnd[1];
 
                 //Button toggle for sidebar
                 $('#sidebarCollapse').on('click', function () {
@@ -536,14 +539,16 @@
                 $('#city').select2();
                 $('#provider').select2();
                 
-                
                 //Select the date 
                 $('#periodDateChart').on('change', function() {
                     
-                    var startEnd = $('#periodDateChart').val().split('/')
-                    plotsChart.startDate = startEnd[0];
-                    plotsChart.endDate   = startEnd[1];
-                    
+                    let startEnd = $('#periodDateChart').val().split('/')
+                    plotsChart.startDate      = startEnd[0];
+                    plotsChart.endDate        = startEnd[1];
+                    plotsChart.yearRange.min  = startEnd[2];
+                    plotsChart.yearRange.max  = startEnd[3];
+                    plotsChart.startDateChart = startEnd[0];
+                    plotsChart.endDateChart   = startEnd[1];
                     plotsChart.getData();
               	});
                 
