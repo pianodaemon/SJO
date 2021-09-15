@@ -143,6 +143,7 @@ def ventas():
 
 ANIO_MIN = 2015
 MES_CAMBIO_ADMON = 10
+DIA_FIN_ADMON = 4
 ANIOS_ADMON = 6
 
 def calcular_periodos_admon():
@@ -151,23 +152,24 @@ def calcular_periodos_admon():
 
     ini, fin = get_periodo_admon(now)
     l.append((get_periodo_admon_str(ini, fin, ini.year, fin.year), 'Administración actual'))
+    fin_backup = fin
 
     ini_year = ini.year
     while ini_year > ANIO_MIN:
         ini_year -= ANIOS_ADMON
-        ini = datetime(ini_year, MES_CAMBIO_ADMON, 5)
-        fin = datetime(ini_year + ANIOS_ADMON, MES_CAMBIO_ADMON, 4)
+        ini = datetime(ini_year, MES_CAMBIO_ADMON, DIA_FIN_ADMON + 1)
+        fin = datetime(ini_year + ANIOS_ADMON, MES_CAMBIO_ADMON, DIA_FIN_ADMON)
         l.append((get_periodo_admon_str(ini, fin, ini.year, fin.year), 'Administración anterior (5/oct/{} a 4/oct/{})'.format(ini.year, fin.year)))
 
     ini = datetime(ini_year, 1, 1)
-    fin = datetime(ini_year, MES_CAMBIO_ADMON, 4)
+    fin = datetime(ini_year, MES_CAMBIO_ADMON, DIA_FIN_ADMON)
     l.append((get_periodo_admon_str(ini, fin, ini_year, ini_year + ANIOS_ADMON), 'Administración anterior (Hasta 4/oct/{})'.format(ini_year)))
 
     # Agregar años
     anio = ANIO_MIN
     ini = anio
     fin = anio + ANIOS_ADMON
-    while anio <= now.year:
+    while anio <= fin_backup.year:
         l.append(('{}-01-01/{}-12-31/{}/{}'.format(anio, anio, ini, fin), str(anio)))
         anio += 1
         if anio > fin:
@@ -187,15 +189,15 @@ def get_periodo_admon(fecha):
         i -= 1
 
     if i == fecha.year:
-        if fecha > datetime(i, MES_CAMBIO_ADMON, 4):
-            ini = datetime(i, MES_CAMBIO_ADMON, 5)
-            fin = datetime(i + ANIOS_ADMON, MES_CAMBIO_ADMON, 4)
+        if fecha > datetime(i, MES_CAMBIO_ADMON, DIA_FIN_ADMON):
+            ini = datetime(i, MES_CAMBIO_ADMON, DIA_FIN_ADMON + 1)
+            fin = datetime(i + ANIOS_ADMON, MES_CAMBIO_ADMON, DIA_FIN_ADMON)
         else:
-            ini = datetime(i - ANIOS_ADMON, MES_CAMBIO_ADMON, 5)
-            fin = datetime(i, MES_CAMBIO_ADMON, 4)
+            ini = datetime(i - ANIOS_ADMON, MES_CAMBIO_ADMON, DIA_FIN_ADMON + 1)
+            fin = datetime(i, MES_CAMBIO_ADMON, DIA_FIN_ADMON)
     else:
-        ini = datetime(i, MES_CAMBIO_ADMON, 5)
-        fin = datetime(i + ANIOS_ADMON, MES_CAMBIO_ADMON, 4)
+        ini = datetime(i, MES_CAMBIO_ADMON, DIA_FIN_ADMON + 1)
+        fin = datetime(i + ANIOS_ADMON, MES_CAMBIO_ADMON, DIA_FIN_ADMON)
 
     return (ini, fin)
 
